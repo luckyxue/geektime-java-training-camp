@@ -1,4 +1,3 @@
-
 package java0.conc0302.atomic;
 
 public class AtomicMain {
@@ -10,7 +9,7 @@ public class AtomicMain {
                 @Override
                 public void run() {
                     for (int j = 0; j < 10000; j++) {
-                        count.add(); 
+                        count.add();
                     }
                 }
             }).start();

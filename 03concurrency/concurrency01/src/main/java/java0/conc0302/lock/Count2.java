@@ -1,4 +1,3 @@
-
 package java0.conc0302.lock;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;

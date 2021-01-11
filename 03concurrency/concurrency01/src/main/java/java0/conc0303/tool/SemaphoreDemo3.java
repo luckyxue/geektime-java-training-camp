@@ -1,9 +1,11 @@
-
 package java0.conc0303.tool;
 
 import java.util.concurrent.Semaphore;
 
 public class SemaphoreDemo3 {
+
+    // 仓库
+    static Warehouse buffer = new Warehouse();
 
     public static void main(String[] args) {
         // 启动线程
@@ -14,10 +16,6 @@ public class SemaphoreDemo3 {
             new Thread(new Consumer()).start();
         }
     }
-
-
-    // 仓库
-    static Warehouse buffer = new Warehouse();
 
     static class Producer implements Runnable {
 

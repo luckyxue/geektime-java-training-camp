@@ -1,7 +1,9 @@
 package java0.conc0303.future;
 
 import java.util.Random;
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
 
 public class FutureTask1 {
     public static void main(String[] args) {
@@ -22,7 +24,7 @@ public class FutureTask1 {
 //            }
 //        });
 //        executor.submit(task);
-        
+
         try {
             System.out.println("result: " + task.get());
         } catch (InterruptedException e) {
@@ -31,5 +33,5 @@ public class FutureTask1 {
             e.printStackTrace();
         }
     }
-    
+
 }

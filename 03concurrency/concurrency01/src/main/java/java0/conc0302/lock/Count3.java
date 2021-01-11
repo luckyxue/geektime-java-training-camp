@@ -1,12 +1,10 @@
-
 package java0.conc0302.lock;
 
 public class Count3 {
 
+    public int num = 0;
     private byte[] lock1 = new byte[1];
     private byte[] lock2 = new byte[1];
-
-    public int num = 0;
 
     public void add() {
         synchronized (lock1) {

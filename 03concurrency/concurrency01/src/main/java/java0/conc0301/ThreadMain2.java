@@ -26,14 +26,10 @@ public class ThreadMain2 {
         System.out.println("返回该线程所属的线程组：" + threadMain.getThreadGroup());
         System.out.println("测试线程是否为守护线程：" + threadMain.isDaemon());
 
-
 //        try {
 //            Thread.sleep(10000);
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
-
     }
-
-
 }

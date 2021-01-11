@@ -30,44 +30,44 @@ public class WaitAndNotify {
         t1.start();
         t2.start();
         //t3.start();
-        
+
     }
 }
 
 class MethodClass {
     // 定义生产最大量
     private final int MAX_COUNT = 20;
-    
+
     int productCount = 0;
-    
+
     public synchronized void product() throws InterruptedException {
         while (true) {
             System.out.println(Thread.currentThread().getName() + ":::run:::" + productCount);
             Thread.sleep(10);
             if (productCount >= MAX_COUNT) {
                 System.out.println("货舱已满,,.不必再生产");
-                
-                wait();
-            }else {
+
+                this.wait();
+            } else {
                 productCount++;
             }
-            
-            notifyAll();
+
+            this.notifyAll();
         }
     }
-    
+
     public synchronized void customer() throws InterruptedException {
         while (true) {
             System.out.println(Thread.currentThread().getName() + ":::run:::" + productCount);
             Thread.sleep(10);
             if (productCount <= 0) {
                 System.out.println("货舱已无货...无法消费");
-                wait();
-            }else {
+                this.wait();
+            } else {
                 productCount--;
             }
-            
-            notifyAll();
+
+            this.notifyAll();
         }
     }
 }

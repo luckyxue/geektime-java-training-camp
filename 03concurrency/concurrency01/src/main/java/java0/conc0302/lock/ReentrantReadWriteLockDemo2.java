@@ -1,4 +1,3 @@
-
 package java0.conc0302.lock;
 
 import java.util.HashMap;
@@ -10,6 +9,11 @@ public class ReentrantReadWriteLockDemo2 {
     private final Map<String, Object> map = new HashMap<>();
 
     private final ReentrantReadWriteLock rwLock = new ReentrantReadWriteLock();
+
+    public static void main(String[] args) {
+        ReentrantReadWriteLockDemo2 demo2 = new ReentrantReadWriteLockDemo2();
+        demo2.readWrite("bingfabiancheng");
+    }
 
     public Object readWrite(String key) {
         Object value = null;
@@ -37,11 +41,6 @@ public class ReentrantReadWriteLockDemo2 {
             rwLock.readLock().unlock();
         }
         return value;
-    }
-
-    public static void main(String[] args) {
-        ReentrantReadWriteLockDemo2 demo2 = new ReentrantReadWriteLockDemo2();
-        demo2.readWrite("bingfabiancheng");
     }
 
 }

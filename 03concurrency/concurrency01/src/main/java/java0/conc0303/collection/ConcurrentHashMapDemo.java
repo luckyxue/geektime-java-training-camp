@@ -6,11 +6,11 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ConcurrentHashMapDemo {
-    
+
     public static void main(String[] args) {
         demo1();
     }
-    
+
     public static void demo1() {
         final Map<String, AtomicInteger> count = new ConcurrentHashMap<>();
         final CountDownLatch endLatch = new CountDownLatch(2);
@@ -34,7 +34,7 @@ public class ConcurrentHashMapDemo {
         };
         new Thread(task).start();
         new Thread(task).start();
-        
+
         try {
             endLatch.await();
             System.out.println(count);
@@ -42,5 +42,5 @@ public class ConcurrentHashMapDemo {
             e.printStackTrace();
         }
     }
-    
+
 }

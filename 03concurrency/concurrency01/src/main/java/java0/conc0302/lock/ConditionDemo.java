@@ -6,12 +6,12 @@ import java.util.concurrent.locks.ReentrantLock;
 
 class ConditionDemo {
     final Lock lock = new ReentrantLock();
-    final Condition notFull  = lock.newCondition();
+    final Condition notFull = lock.newCondition();
     final Condition notEmpty = lock.newCondition();
-    
+
     final Object[] items = new Object[20];
     int putptr, takeptr, count;
-    
+
     public void put(Object x) throws InterruptedException {
         lock.lock();
         try {
@@ -26,7 +26,7 @@ class ConditionDemo {
             lock.unlock();
         }
     }
-    
+
     public Object take() throws InterruptedException {
         lock.lock();
         try {

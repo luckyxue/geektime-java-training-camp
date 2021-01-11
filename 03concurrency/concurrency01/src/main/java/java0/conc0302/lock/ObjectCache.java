@@ -1,4 +1,3 @@
-
 package java0.conc0302.lock;
 
 import java.util.concurrent.Semaphore;
@@ -7,22 +6,12 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ObjectCache<T> {
 
-    public interface ObjectFactory<T> {
-        T makeObject();
-    }
-
-    class Node {
-        T obj;
-        Node next;
-    }
-
     final int capacity;
     final ObjectFactory<T> factory;
     final Lock lock = new ReentrantLock();
     final Semaphore semaphore;
     private Node head;
     private Node tail;
-
     public ObjectCache(int capacity, ObjectFactory<T> factory) {
         this.capacity = capacity;
         this.factory = factory;
@@ -73,5 +62,14 @@ public class ObjectCache<T> {
     public void returnObject(T t) {
         returnObjectToPool(t);
         semaphore.release();
+    }
+
+    public interface ObjectFactory<T> {
+        T makeObject();
+    }
+
+    class Node {
+        T obj;
+        Node next;
     }
 }

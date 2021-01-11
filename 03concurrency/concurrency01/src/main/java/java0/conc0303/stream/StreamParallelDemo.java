@@ -21,14 +21,14 @@ public class StreamParallelDemo {
         // 并行，默认使用CPU * 2个线程
         longList.stream().forEach(
                 i -> {
-            try {
-                blockingQueue.put(i);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
+                    try {
+                        blockingQueue.put(i);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                });
         System.out.println("blockingQueue:" + blockingQueue.toString());
     }
-    
-    
+
+
 }

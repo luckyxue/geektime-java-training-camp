@@ -1,4 +1,3 @@
-
 package java0.conc0301;
 
 import java.io.IOException;
@@ -19,7 +18,7 @@ public class RunnerMain {
         thread2.interrupt();  // i = true
 
         System.out.println(Thread.activeCount());
-        
+
         Thread.currentThread().getThreadGroup().list();
         System.out.println(Thread.currentThread().getThreadGroup().getParent().activeGroupCount());
         Thread.currentThread().getThreadGroup().getParent().list();
