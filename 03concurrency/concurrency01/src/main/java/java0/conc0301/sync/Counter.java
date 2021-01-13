@@ -2,12 +2,15 @@ package java0.conc0301.sync;
 
 public class Counter {
 
+    // 静态常量
     public final static int A = 10;
-
+    // 静态变量
     public static int B = 10;
 
-    private int sum = 0;
-//    private volatile int sum = 0;
+    // 什么都不加，被多线程共享
+//    private int sum = 0;
+    // 即使加上volatile关键字修饰也是不能保证原子性
+    private volatile int sum = 0;
 
     public static void main(String[] args) throws InterruptedException {
         int loop = 100000;
@@ -40,7 +43,7 @@ public class Counter {
         System.out.println("multiple threads: " + counter2.getSum());
     }
 
-    public synchronized void incr() {
+    public void incr() {
         sum = sum + 1;
     }
 
