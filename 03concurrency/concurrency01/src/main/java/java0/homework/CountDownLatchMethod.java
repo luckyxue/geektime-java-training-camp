@@ -11,6 +11,7 @@ import java.util.concurrent.CountDownLatch;
  */
 public class CountDownLatchMethod {
 
+    // 保证线程对该变量的可见性
     private volatile Integer value = null;
     private CountDownLatch latch;
 

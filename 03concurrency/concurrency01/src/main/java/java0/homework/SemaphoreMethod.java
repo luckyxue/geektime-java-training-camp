@@ -12,6 +12,7 @@ import java.util.concurrent.Semaphore;
 public class SemaphoreMethod {
 
     private final Semaphore semaphore = new Semaphore(1);
+    // 保证线程对该变量的可见性
     private volatile Integer value = null;
 
     /**
@@ -30,25 +31,21 @@ public class SemaphoreMethod {
 
         long start = System.currentTimeMillis();
         // 在这里创建一个线程或线程池，
-        // 异步执行 下面方法
+        // 异步执行下面方法
 
         final SemaphoreMethod method = new SemaphoreMethod();
         Thread thread = new Thread(() -> {
             try {
-                method.sum(45);
+                method.sum(36);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
         thread.start();
-
         int result = method.getValue(); //这是得到的返回值
-
-        // 确保  拿到result 并输出
+        // 确保拿到result 并输出
         System.out.println("异步计算结果为：" + result);
-
         System.out.println("使用时间：" + (System.currentTimeMillis() - start) + " ms");
-
         // 然后退出main线程
     }
 
@@ -69,7 +66,8 @@ public class SemaphoreMethod {
         int result;
         semaphore.acquire();
         result = this.value;
-        semaphore.release();
+        // 已经执行完获取结果，不用再释放锁
+//        semaphore.release();
         return result;
     }
 

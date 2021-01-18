@@ -20,7 +20,7 @@ public class NoLockMethod {
 
         final NoLockMethod method = new NoLockMethod();
         Thread thread = new Thread(() -> {
-            method.sum(45);
+            method.sum(36);
         });
         thread.start();
 
