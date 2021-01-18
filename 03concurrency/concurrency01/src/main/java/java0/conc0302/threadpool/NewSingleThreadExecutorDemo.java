@@ -9,7 +9,7 @@ public class NewSingleThreadExecutorDemo {
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             final int no = i;
             executorService.execute(() -> {
                 System.out.println("start:" + no);

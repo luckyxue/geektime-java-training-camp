@@ -1,18 +1,55 @@
+Week03 作业题目（周四）：
+
+基础代码可以 fork： https://github.com/JavaCourse00/JavaCourseCodes
+02nio/nio02 文件夹下
+
+实现以后，代码提交到 Github。
+
+1.（必做）整合你上次作业的 httpclient/okhttp；
+2.（选做）使用 netty 实现后端 http 访问（代替上一步骤）
+
+Week03 作业题目（周六）：
+
+1.（必做）实现过滤器。
+2.（选做）实现路由。
+
+作业提交规范：
+
+1. 作业不要打包 ；
+2. 同学们写在 md 文件里，而不要发 Word, Excel , PDF 等 ；
+3. 代码类作业需提交完整 Java 代码，不能是片段；
+4. 作业按课时分目录，仅上传作业相关，笔记分开记录；
+5. 画图类作业提交可直接打开的图片或 md，手画的图手机拍照上传后太大，难以查看，推荐画图（推荐 PPT、Keynote）；
+6. 提交记录最好要标明明确的含义（比如第几题作业）。
+
+## 操作步骤
+
+### 1.（必做）整合你上次作业的 httpclient/okhttp
+
+1. 下载老师的项目: https://github.com/JavaCourse00/JavaCourseCodes
+2. 解压, 拷贝其中 `02nio` 路径下的 `nio02` 目录到第三周的作业目录下。
+3. Idea或者Eclipse打开这个Maven项目。
+4. 增加自己的包名, 以做标识。
+5. 将第二周的作业代码整合进来: [homework02](../Week_02/homework02/) 中的代码和pom.xml依赖。
+6. 将 nio01 中的 HttpServer03 代码整合进来作为后端服务，改名为 [BackendServer](https://github.com/renfufei/JAVA-000/blob/main/Week_03/nio02/src/main/java/com/renfufei/homework03/BackendServer.java), 监听 8088 端口。
+7. 找到Netty官网: https://netty.io/wiki/user-guide-for-4.x.html
+8. 参照官方示例, 编写自己的过滤器 [ProxyBizFilter](https://github.com/renfufei/JAVA-000/blob/main/Week_03/nio02/src/main/java/com/renfufei/homework03/ProxyBizFilter.java);
+9. 可以加入到 [HttpInboundHandler.java](https://github.com/renfufei/JAVA-000/blob/main/Week_03/nio02/src/main/java/io/github/kimmking/gateway/inbound/); 【实际上应该加入到 [HttpInboundInitializer](./nio02/src/main/java/io/github/kimmking/gateway/inbound/HttpInboundInitializer.java) 的初始化方法中】。
+10. 修改 [HttpOutboundHandler](https://github.com/renfufei/JAVA-000/blob/main/Week_03/nio02/src/main/java/io/github/kimmking/gateway/outbound/httpclient4/HttpOutboundHandler.java) 类，集成自己写的第二周的作业代码；
+
+
 Week04 作业题目（周四）：
 
 一个简单的代码参考：[strong_end] https://github.com/kimmking/JavaCourseCodes/tree/main/03concurrency/0301/src/main/java/java0/conc0303/Homework03.java
 
 1.（选做）把示例代码，运行一遍，思考课上相关的问题。也可以做一些比较。
-
 2.（必做）思考有多少种方式，在 main 函数启动一个新线程，运行一个方法，拿到这个方法的返回值后，退出主线程？
 写出你的方法，越多越好，提交到 Github。
 
 Week04 作业题目（周六）：
 
 1.（选做）列举常用的并发操作 API 和工具类，简单分析其使用场景和优缺点。
-
 2.（选做）请思考：什么是并发？什么是高并发？实现高并发高可用系统需要考虑哪些因素，对于这些你是怎么理解的？
-
 3.（选做）请思考：还有哪些跟并发类似 / 有关的场景和问题，有哪些可以借鉴的解决办法。
 4.（必做）把多线程和并发相关知识带你梳理一遍，画一个脑图，截图上传到 Github 上。
 可选工具：xmind，百度脑图，wps，MindManage 或其他。

@@ -19,23 +19,24 @@ public class CountDownLatchDemo2 {
             final int threadNum = i;
             exec.execute(() -> {
                 try {
-                    test(threadNum);
+                    process(threadNum);
                     //countDownLatch.countDown();
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
+                    // 最好写在finally里面防止资源无法释放
                     countDownLatch.countDown();
                 }
             });
         }
         countDownLatch.await();
         System.out.println("==>所有程序员完成任务，项目顺利上线！");
-        //exec.shutdown();
+        exec.shutdown();
     }
 
-    private static void test(int threadNum) throws Exception {
-        Thread.sleep(100);
+    private static void process(int threadNum) throws Exception {
+        Thread.sleep(1000);
         System.out.println(String.format("程序员[%d]完成任务。。。", threadNum));
-        Thread.sleep(100);
+        Thread.sleep(1000);
     }
 }

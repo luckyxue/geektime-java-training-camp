@@ -1,5 +1,8 @@
 package java0.conc0302.lock;
 
+/**
+ * 演示死锁
+ */
 public class LockMain {
 
     public static void main(String[] args) {
@@ -11,7 +14,6 @@ public class LockMain {
         ThreadB threadB = new ThreadB(count3);
         threadB.setName("线程B");
         threadB.start();
-
     }
 
 }

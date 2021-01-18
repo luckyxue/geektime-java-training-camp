@@ -13,6 +13,7 @@ public class LockSupportDemo {
         Thread.sleep(1000L);
         t2.start();
         Thread.sleep(3000L);
+        // 中断也是可以让当前线程停止等待开始执行
         t1.interrupt();
         LockSupport.unpark(t2);
         t1.join();

@@ -3,6 +3,9 @@ package java0.conc0302.threadpool;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * 演示创建固定线程数的线程池
+ */
 public class NewFixedThreadExecutorDemo {
 
     public static void main(String[] args) {

@@ -33,6 +33,4 @@ public class Count3 {
             System.out.println(Thread.currentThread().getName() + "_" + num);
         }
     }
-
-
 }

@@ -5,6 +5,10 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
+/**
+ * 对比FutureTask和Future的区别
+ * FutureTask本质上还是一个task
+ */
 public class FutureTask1 {
     public static void main(String[] args) {
         //第一种方式

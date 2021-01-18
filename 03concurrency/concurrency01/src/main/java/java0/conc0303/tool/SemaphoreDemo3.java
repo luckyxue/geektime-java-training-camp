@@ -9,7 +9,7 @@ public class SemaphoreDemo3 {
 
     public static void main(String[] args) {
         // 启动线程
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= 1; i++) {
             // 生产者
             new Thread(new Producer()).start();
             // 消费者
@@ -27,9 +27,9 @@ public class SemaphoreDemo3 {
             while (true) {
                 try {
                     buffer.put(n);
-                    System.out.println(">" + n);
-                    // 速度较快。休息10毫秒
-                    Thread.sleep(10);
+                    System.out.println("生产者生产：" + n);
+                    // 速度较快。休息1秒
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -43,9 +43,9 @@ public class SemaphoreDemo3 {
         public void run() {
             while (true) {
                 try {
-                    System.out.println("<" + buffer.take());
-                    // 速度较慢，休息1000毫秒
-                    Thread.sleep(1000);
+                    System.out.println("消费者消费：" + buffer.take());
+                    // 速度较慢，休息3秒
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

@@ -29,8 +29,6 @@ public class NewScheduledThreadExecutorDemo {
         }
         executorService.shutdown();
         System.out.println("Main Thread End!");
-
-
     }
 
 }

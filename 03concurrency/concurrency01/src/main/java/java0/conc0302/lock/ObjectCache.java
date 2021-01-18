@@ -12,6 +12,7 @@ public class ObjectCache<T> {
     final Semaphore semaphore;
     private Node head;
     private Node tail;
+
     public ObjectCache(int capacity, ObjectFactory<T> factory) {
         this.capacity = capacity;
         this.factory = factory;

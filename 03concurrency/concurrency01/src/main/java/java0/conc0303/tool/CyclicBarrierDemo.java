@@ -5,6 +5,9 @@ import java.util.concurrent.CyclicBarrier;
 public class CyclicBarrierDemo {
     public static void main(String[] args) throws InterruptedException {
         CyclicBarrier cyclicBarrier = new CyclicBarrier(5, new Runnable() {
+            /**
+             * 回调线程聚合点
+             */
             @Override
             public void run() {
                 System.out.println("回调>>" + Thread.currentThread().getName());
@@ -12,20 +15,15 @@ public class CyclicBarrierDemo {
                 System.out.println("==>各个子线程执行结束。。。。");
             }
         });
-        for (int i = 0; i < 5; i++) {
+//        for (int i = 0; i < 5; i++) {
+//            new Thread(new readNum(i, cyclicBarrier)).start();
+//        }
+        System.out.println("==>主线程执行结束。。。。");
+//        CyclicBarrier 可以重复利用，
+//         这个是CountDownLatch做不到的
+        for (int i = 0; i < 15; i++) {
             new Thread(new readNum(i, cyclicBarrier)).start();
         }
-
-        // ==>>>
-
-
-        System.out.println("==>主线程执行结束。。。。");
-
-        //CyclicBarrier 可以重复利用，
-        // 这个是CountDownLatch做不到的
-//        for (int i = 11; i < 16; i++) {
-//            new Thread(new readNum(i,cyclicBarrier)).start();
-//        }
     }
 
     static class readNum implements Runnable {

@@ -38,8 +38,10 @@ public class ThreadLocalDemo {
 
         public void run() {
             for (int i = 0; i < 3; i++) {
-                System.out.println("thread[" + Thread.currentThread().getName() + "] ---> sn [" + sn.getNextNum() + "]");
+                System.out.println("thread[" + Thread.currentThread().getName() +
+                        "] ---> sn [" + sn.getNextNum() + "]");
             }
+            // ThreadLocal变量用完直接remove，防止发生内存泄露
             sn.getThreadLocal().remove();
         }
     }

@@ -19,7 +19,7 @@ public class SemaphoreDemo2 {
             exec.execute(() -> {
                 try {
                     semaphore.acquire(3); // 获取全部许可，退化成串行执行
-                    test(threadNum);
+                    process(threadNum);
                     semaphore.release(3); // 释放多个许可
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -29,7 +29,7 @@ public class SemaphoreDemo2 {
         exec.shutdown();
     }
 
-    private static void test(int threadNum) throws Exception {
+    private static void process(int threadNum) throws Exception {
         System.out.println("id:" + threadNum + "," + Thread.currentThread().getName());
         Thread.sleep(1000);
     }
