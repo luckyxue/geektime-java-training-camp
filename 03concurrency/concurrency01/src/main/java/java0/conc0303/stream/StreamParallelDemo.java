@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class StreamParallelDemo {
+    // stream同时执行串行和并行迭代集合数据流
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
         IntStream.range(1, 10000).forEach(i -> list.add(i));

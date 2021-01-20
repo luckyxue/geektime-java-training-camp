@@ -22,10 +22,15 @@ public class ConcurrentHashMapDemo {
                     oldValue = count.get("a");
                     if (null == oldValue) {
                         AtomicInteger zeroValue = new AtomicInteger(0);
+                        // 获取添加之前的值
                         oldValue = count.putIfAbsent("a", zeroValue);
                         if (null == oldValue) {
                             oldValue = zeroValue;
+                        } else {
+                            System.out.println(oldValue.get());
                         }
+                    } else {
+                        System.out.println(oldValue.get());
                     }
                     oldValue.incrementAndGet();
                 }

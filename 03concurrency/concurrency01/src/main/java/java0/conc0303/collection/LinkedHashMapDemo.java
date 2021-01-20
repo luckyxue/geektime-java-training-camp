@@ -4,7 +4,7 @@ import java.util.*;
 
 public class LinkedHashMapDemo {
     public static void main(String[] args) {
-
+        // HashMap的keys乱序
         // test hash map
         System.out.println("=====>1. test hash map");
         Map<String, String> hashMap = new HashMap<String, String>();
@@ -19,7 +19,7 @@ public class LinkedHashMapDemo {
             String value = (String) entry.getValue();
             System.out.println("key:" + key + ",value:" + value);
         }
-
+        // LinkedHashMap的keys按插入的顺序排列
         // test linked hash map
         System.out.println("=====>2. test linked hash map");
         Map<String, String> linkedHashMap = new LinkedHashMap<>();

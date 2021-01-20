@@ -24,6 +24,7 @@ public class CopyOnWriteArrayListDemo2 {
             public void run() {
                 while (true) {
                     if (list.size() > 0) {    // todo ： 下一个get操作执行时，size可能已经是0了
+                        // 执行会报错ArrayIndexOutOfBoundsException
                         String content = list.get(list.size() - 1);
                     } else {
                         break;

@@ -16,30 +16,18 @@ public class SyncListDemo {
         list.addAll(list0);
 
         List list1 = Collections.synchronizedList(list);
-
         // 多线程操作
         // to do something
-
         System.out.println(Arrays.toString(list1.toArray()));
-
         Collections.shuffle(list1);
-
-
         System.out.println(Arrays.toString(list1.toArray()));
-
 
         // 假如不再修改
-
         List list2 = Collections.unmodifiableList(list1);
-
         System.out.println(list2.getClass());
-
         list2.set(8, 10);
-
         System.out.println(Arrays.toString(list2.toArray()));
-
         list2.add(11);
-
         System.out.println(Arrays.toString(list2.toArray()));
     }
 

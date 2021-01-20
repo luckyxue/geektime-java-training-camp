@@ -1,7 +1,7 @@
 package java0.conc0303.collection;
 
 import java.util.List;
-import java.util.Vector;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class CopyOnWriteArrayListDemo {
 
@@ -9,12 +9,13 @@ public class CopyOnWriteArrayListDemo {
 
         // ArrayList，LinkedList，Vector不安全，运行报错
         // why Vector 也不安全
-//        List<Integer> list = new ArrayList<Integer>();
+        // CopyOnWriteArrayList保存了快照
+//        List<Integer> list = new ArrayList<>();
 //        List<Integer> list = new LinkedList<>();
-        List<Integer> list = new Vector<>();
+//        List<Integer> list = new Vector<>();
 
         // 只有CopyOnWriteArrayList 安全，不报错
-        //List<Integer> list = new CopyOnWriteArrayList();
+        List<Integer> list = new CopyOnWriteArrayList();
 
         for (int i = 0; i < 10000; i++) {
             list.add(i);

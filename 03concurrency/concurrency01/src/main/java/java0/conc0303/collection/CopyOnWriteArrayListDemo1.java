@@ -2,23 +2,18 @@ package java0.conc0303.collection;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
 public class CopyOnWriteArrayListDemo1 {
     private static final int THREAD_POOL_MAX_NUM = 10;
-    private List<String> mList = new ArrayList<String>();  // ArrayList 无法运行
-    //private List<String> mList = new CopyOnWriteArrayList<>();
+//    private List<String> mList = new ArrayList<>();  // ArrayList 无法运行
+    private List<String> mList = new CopyOnWriteArrayList<>();
 
     public static void main(String args[]) {
         new CopyOnWriteArrayListDemo1().start();
-    }
-
-    private void initData() {
-        for (int i = 0; i <= THREAD_POOL_MAX_NUM; i++) {
-            this.mList.add("...... Line " + (i + 1) + " ......");
-        }
     }
 
     private void start() {
@@ -29,6 +24,12 @@ public class CopyOnWriteArrayListDemo1 {
             service.execute(new ListWriter(this.mList, i));
         }
         service.shutdown();
+    }
+
+    private void initData() {
+        for (int i = 0; i <= THREAD_POOL_MAX_NUM; i++) {
+            this.mList.add("...... Line " + (i + 1) + " ......");
+        }
     }
 
     private class ListReader implements Runnable {
