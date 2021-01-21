@@ -1,17 +1,17 @@
-package io.kimmking.spring02;
+package io.hancaihaoyun.spring02;
 
-import io.kimmking.spring01.Student;
+import io.hancaihaoyun.spring01.Student;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class Klass { 
-    
+public class Klass {
+
     List<Student> students;
-    
-    public void dong(){
+
+    public void dong() {
         System.out.println(this.getStudents());
     }
-    
+
 }

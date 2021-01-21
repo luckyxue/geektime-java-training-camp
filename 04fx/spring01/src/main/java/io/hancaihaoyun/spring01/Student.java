@@ -1,4 +1,4 @@
-package io.kimmking.spring01;
+package io.hancaihaoyun.spring01;
 
 
 import lombok.AllArgsConstructor;
@@ -15,15 +15,15 @@ import java.io.Serializable;
 @ToString
 
 public class Student implements Serializable {
-    
+
     private int id;
     private String name;
-    
-    public void init(){
+
+    public void init() {
         System.out.println("hello...........");
     }
-    
-    public Student create(){
-        return new Student(101,"KK101");
+
+    public Student create() {
+        return new Student(101, "KK101");
     }
 }
