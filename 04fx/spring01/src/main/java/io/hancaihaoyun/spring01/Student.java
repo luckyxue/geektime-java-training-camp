@@ -1,19 +1,13 @@
 package io.hancaihaoyun.spring01;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
-
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-
 public class Student implements Serializable {
 
     private int id;

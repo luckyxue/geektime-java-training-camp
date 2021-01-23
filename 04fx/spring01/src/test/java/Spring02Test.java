@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
+// 单元测试
 public class Spring02Test {
 
     private Klass class1;
@@ -14,6 +15,4 @@ public class Spring02Test {
         when(class1.getStudents().size()).thenReturn(2);
         Assert.assertEquals(2, class1.getStudents().size());
     }
-
-    // 单元测试
 }

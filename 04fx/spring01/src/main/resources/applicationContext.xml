@@ -25,17 +25,16 @@
             <list>
                 <ref bean="student100"/>
                 <ref bean="student123"/>
-                <!--                <bean class="io.hancaihaoyun.spring01.Student">-->
-                <!--                    <property name="name" value="qq" />-->
-                <!--                    <property name="id" value="001" /> -->
-                <!--                </bean>-->
+                <!--  这里可以单独添加Student对象              -->
+<!--                <bean class="io.hancaihaoyun.spring01.Student">-->
+<!--                    <property name="name" value="qq"/>-->
+<!--                    <property name="id" value="001"/>-->
+<!--                </bean>-->
             </list>
         </property>
     </bean>
 
-
     <context:component-scan base-package="io.hancaihaoyun.spring02"/>
-
 
     <bean id="aop1" class="io.hancaihaoyun.spring02.Aop1"/>
 

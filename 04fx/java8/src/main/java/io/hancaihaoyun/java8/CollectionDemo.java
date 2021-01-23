@@ -1,4 +1,4 @@
-package io.hancaihaoyun.spring01;
+package io.hancaihaoyun.java8;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -30,10 +30,7 @@ public class CollectionDemo {
     }
 
     private static void print(List<Integer> list) {
-        System.out.println(String.join(",", list.stream()
-                .map(i -> i.toString())
-                .collect(Collectors.toList())
-                .toArray(new String[]{})));
+        System.out.println(String.join(",", list.stream().map(i -> i.toString()).collect(Collectors.toList()).toArray(new String[]{})));
     }
 
 }

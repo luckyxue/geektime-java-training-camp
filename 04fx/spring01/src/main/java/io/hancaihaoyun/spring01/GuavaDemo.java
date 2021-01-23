@@ -27,7 +27,6 @@ public class GuavaDemo {
     public static void main(String[] args) throws IOException {
 
         // 字符串处理
-        // 
         List<String> lists = Lists.newArrayList("a", "b", "g", "8", "9");
         String result = Joiner.on(",").join(lists);
         System.out.println(result);
@@ -38,12 +37,10 @@ public class GuavaDemo {
 
         // 更强的集合操作
         // 简化 创建
-
         List<Integer> list = Lists.newArrayList(4, 2, 3, 5, 1, 2, 2, 7, 6);
 
         List<List<Integer>> list1 = Lists.partition(list, 3);
         print(list1);
-
 
         //Map map = list.stream().collect(Collectors.toMap(a->a,a->(a+1)));
         Multimap<Integer, Integer> bMultimap = ArrayListMultimap.create();
@@ -71,8 +68,6 @@ public class GuavaDemo {
         Student student2 = new Student(2, "KK02");
         System.out.println("I want " + student2 + " run now.");
         bus.post(new AEvent(student2));
-
-
     }
 
     private static void print(Object obj) {
@@ -89,6 +84,4 @@ public class GuavaDemo {
     public static class AEvent {
         private Student student;
     }
-
-
 }
