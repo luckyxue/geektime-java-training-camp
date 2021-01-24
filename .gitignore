@@ -47,3 +47,6 @@ target/
 build/
 
 .DS_Store
+
+*AUTHORS
+*History.md
