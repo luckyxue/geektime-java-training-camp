@@ -23,6 +23,7 @@ public class ForeachDemo {
         List list = Arrays.asList(1, 2);
         int y = 1;
         list.forEach(e -> {
+            // 这里为什么可以更改类变量x的值 ？？？
             x = 2;
             // y must be finally
             //y=2;  // can't be compiled

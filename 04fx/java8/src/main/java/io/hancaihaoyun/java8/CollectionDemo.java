@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 public class CollectionDemo {
     public static void main(String[] args) throws IOException {
-
-        List<Integer> list = Arrays.asList(4, 2, 3, 5, 1, 2, 2, 7, 6);   // Arrays还可以包装stream
+        // Arrays还可以包装stream
+        List<Integer> list = Arrays.asList(4, 2, 3, 5, 1, 2, 2, 7, 6);
         print(list);
         Collections.sort(list);
         print(list);
@@ -26,7 +26,6 @@ public class CollectionDemo {
 
         list = Collections.singletonList(6);
         print(list);
-
     }
 
     private static void print(List<Integer> list) {

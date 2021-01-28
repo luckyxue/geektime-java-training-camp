@@ -11,10 +11,9 @@ public class StreamDemo2 {
         List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd", "", "jkl");
         System.out.println("列表: " + strings);
         long count = getCountEmptyStringUsingJava7(strings);
-
         System.out.println("空字符数量为: " + count);
-        count = getCountLength3UsingJava7(strings);
 
+        count = getCountLength3UsingJava7(strings);
         System.out.println("字符串长度为 3 的数量为: " + count);
 
         // 删除空字符串
@@ -24,8 +23,8 @@ public class StreamDemo2 {
         // 删除空字符串，并使用逗号把它们合并起来
         String mergedString = getMergedStringUsingJava7(strings, ", ");
         System.out.println("合并字符串: " + mergedString);
-        List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);
 
+        List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);
         // 获取列表元素平方数
         List<Integer> squaresList = getSquares(numbers);
         System.out.println("平方数列表: " + squaresList);
@@ -73,17 +72,15 @@ public class StreamDemo2 {
         System.out.println("随机数: ");
 
         random.ints().limit(10).sorted().forEach(System.out::println);
-
         // 并行处理
         count = strings.parallelStream().filter(string -> string.isEmpty()).count();
         System.out.println("空字符串的数量为: " + count);
     }
 
+    // for-each 外循环
     private static int getCountEmptyStringUsingJava7(List<String> strings) {
         int count = 0;
-
         for (String string : strings) {
-
             if (string.isEmpty()) {
                 count++;
             }
@@ -91,11 +88,10 @@ public class StreamDemo2 {
         return count;
     }
 
+    // for-each 外循环
     private static int getCountLength3UsingJava7(List<String> strings) {
         int count = 0;
-
         for (String string : strings) {
-
             if (string.length() == 3) {
                 count++;
             }
@@ -105,9 +101,7 @@ public class StreamDemo2 {
 
     private static List<String> deleteEmptyStringsUsingJava7(List<String> strings) {
         List<String> filteredList = new ArrayList<String>();
-
         for (String string : strings) {
-
             if (!string.isEmpty()) {
                 filteredList.add(string);
             }
@@ -117,9 +111,7 @@ public class StreamDemo2 {
 
     private static String getMergedStringUsingJava7(List<String> strings, String separator) {
         StringBuilder stringBuilder = new StringBuilder();
-
         for (String string : strings) {
-
             if (!string.isEmpty()) {
                 stringBuilder.append(string);
                 stringBuilder.append(separator);
@@ -131,10 +123,8 @@ public class StreamDemo2 {
 
     private static List<Integer> getSquares(List<Integer> numbers) {
         List<Integer> squaresList = new ArrayList<Integer>();
-
         for (Integer number : numbers) {
             Integer square = new Integer(number.intValue() * number.intValue());
-
             if (!squaresList.contains(square)) {
                 squaresList.add(square);
             }

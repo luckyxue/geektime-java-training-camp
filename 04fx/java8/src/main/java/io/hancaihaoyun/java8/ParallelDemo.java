@@ -19,6 +19,7 @@ public class ParallelDemo {
 
         System.out.println("开始排序");
         long startTime = System.nanoTime();//纳秒 比毫秒的精度高
+        // 串行排序
         list.stream().sorted().count();
 
         long endTime = System.nanoTime(); //纳秒, 结束时间
@@ -35,6 +36,7 @@ public class ParallelDemo {
 
         System.out.println("开始排序");
         long startTime = System.nanoTime();//纳秒 比毫秒的精度高
+        // 并行排序
         list.parallelStream().sorted().count();
 
         long endTime = System.nanoTime(); //纳秒, 结束时间

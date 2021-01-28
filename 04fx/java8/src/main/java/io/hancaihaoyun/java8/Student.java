@@ -1,16 +1,13 @@
 package io.hancaihaoyun.java8;
 
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 import java.io.Serializable;
-
 
 @Data
 @NoArgsConstructor
@@ -28,13 +25,13 @@ public class Student implements Serializable, ApplicationContextAware {
     }
 
     public void init() {
-        System.out.println("hello...........");
-        log.debug("ddddddddddddddd");
+        System.out.println("init hello world");
+        log.debug("hello work");
     }
 
     public Student create() {
-
         this.applicationContext.getBeanDefinitionNames();
+        System.out.println("create hello world");
         Student s = new Student(101, "KK101");
         return s;
     }

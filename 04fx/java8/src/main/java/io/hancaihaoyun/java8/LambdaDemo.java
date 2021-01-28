@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
 
+// 泛型&把各个接口多继承拼接起来，约束一个泛型满足n个类型
 public class LambdaDemo<T extends Serializable & Comparable & Collection> {
 
     public static void main(String args[]) {
@@ -27,6 +28,7 @@ public class LambdaDemo<T extends Serializable & Comparable & Collection> {
         // 大括号中的返回语句
         MathOperation multiplication = (int a, int b) -> {
             int c = 1000;
+            // 断点打在这里可以看到本质上还是匿名内部类
             return a * b + c;
         };
 
@@ -50,6 +52,7 @@ public class LambdaDemo<T extends Serializable & Comparable & Collection> {
         GreetingService greetService2 = (message) ->
                 System.out.println("Hello " + message);
 
+        // 简单方法直接返回引用
         GreetingService greetService3 = System.out::println;
 
         Arrays.asList(1, 2, 3).forEach(x -> System.out.println(x + 3));
@@ -58,12 +61,15 @@ public class LambdaDemo<T extends Serializable & Comparable & Collection> {
         // 总算让我有一种函数式编程的感觉
         greetService1.sayMessage("kimmking");
         greetService2.sayMessage("Java");
+
+        greetService3.sayMessage("lambada");
     }
 
     private static void println(int x) {
         System.out.println(x + 3);
     }
 
+    // 一般情况<T>返回值泛型是定义在类上面的，但是如果只是部分方法使用，就直接加在方法上面
     private <T> T operate(int a, int b, MathOperation<T> mathOperation) {
         return mathOperation.operation(a, b);
     }

@@ -21,13 +21,15 @@ public class StreamDemo {
         int sum = list.stream().filter(i -> i < 4).distinct().reduce(0, (a, b) -> a + b);
         System.out.println("sum=" + sum);
 
+        // 如果遇到key相同，则使用第一个 (a, b) -> a
         //Map map = list.stream().collect(Collectors.toMap(a->a,a->(a+1)));
-        Map<Integer, Integer> map = list.parallelStream().collect(Collectors.toMap(a -> a, a -> (a + 1), (a, b) -> a, LinkedHashMap::new));
+        Map<Integer, Integer> map = list.parallelStream().collect(Collectors
+                .toMap(a -> a, a -> (a + 1), (a, b) -> a, LinkedHashMap::new));
         print(map);
 
-
         map.forEach((k, v) -> System.out.println("key:value = " + k + ":" + v));
-        List<Integer> list1 = map.entrySet().parallelStream().map(e -> e.getKey() + e.getValue()).collect(Collectors.toList());
+        List<Integer> list1 = map.entrySet().parallelStream().map(e -> e.getKey() + e.getValue())
+                .collect(Collectors.toList());
         print(list1);
 
         // parallelStream()
@@ -35,8 +37,6 @@ public class StreamDemo {
         // 总结：
         // 1. Fluent API：继续Stream
         // 2. 终止操作：得到结果
-
-
     }
 
 
