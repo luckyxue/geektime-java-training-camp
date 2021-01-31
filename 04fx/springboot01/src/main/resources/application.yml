@@ -10,8 +10,8 @@ spring:
     in-memory: true      # 默认代理URL是否应该在内存中。如果指定了显式代理，则忽略此值。
     non-blocking-redelivery: false  # 是否在回滚回滚消息之前停止消息传递。这意味着当启用此命令时，消息顺序不会被保留。
     send-timeout: 0     # 等待消息发送响应的时间。设置为0等待永远。
-    queue-name: active.queue
-    topic-name: active.topic.name.model
+    queue-name: active.queue # queue name
+    topic-name: active.topic.name.model # topic name
     packages:
       trust-all: true #不配置此项，会报错
   pool:

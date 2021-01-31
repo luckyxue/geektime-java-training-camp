@@ -16,8 +16,10 @@ import java.util.Map;
 
 public class GuavaDemo {
 
+    // 创建一个Event Bus总线
     static EventBus bus = new EventBus();
 
+    // Event Bus上注册一个生产者
     static {
         bus.register(new GuavaDemo());
     }
@@ -44,6 +46,7 @@ public class GuavaDemo {
         // Callback/Listener
         Student student2 = new Student(2, "KK02");
         System.out.println("I want " + student2 + " run now.");
+        // 向bus上发布消息
         bus.post(new AEvent(student2));
     }
 
@@ -54,6 +57,7 @@ public class GuavaDemo {
         words.put("Third", 3);
 
         System.out.println(words.get("Second").intValue());
+        // key 和 value 互换颠倒
         System.out.println(words.inverse().get(3));
 
         Map<String, String> map1 = Maps.toMap(lists.listIterator(), a -> a + "-value");
@@ -73,7 +77,6 @@ public class GuavaDemo {
         // 更强的集合操作
         // 简化 创建
         List<Integer> list = Lists.newArrayList(4, 2, 3, 5, 1, 2, 2, 7, 6);
-
         List<List<Integer>> list1 = Lists.partition(list, 3);
         print(list1);
         return list;
@@ -84,7 +87,6 @@ public class GuavaDemo {
         List<String> lists = Lists.newArrayList("a", "b", "g", "8", "9");
         String result = Joiner.on(",").join(lists);
         System.out.println(result);
-
         String test = "34344,34,34,哈哈";
         lists = Splitter.on(",").splitToList(test);
         System.out.println(lists);
@@ -95,6 +97,7 @@ public class GuavaDemo {
         System.out.println(JSON.toJSONString(obj));
     }
 
+    // 消费者接收到消息然后处理事件
     @Subscribe
     public void handle(AEvent ae) {
         System.out.println(ae.student + " is running.");

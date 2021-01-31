@@ -14,16 +14,19 @@ public class GenericDemo {
         Type type = clazz.getGenericSuperclass();
         System.out.println(type);
         //ParameterizedType参数化类型，即泛型
+        //参数化类型，泛型
         ParameterizedType p = (ParameterizedType) type;
         //getActualTypeArguments获取参数化类型的数组，泛型可能有多个
         Class c = (Class) p.getActualTypeArguments()[0];
         System.out.println(c);
     }
 
+    // 静态内部类
     public static class Person<T> {
 
     }
 
+    // 静态内部子类
     public static class Demo extends Person<GenericDemo> {
 
     }

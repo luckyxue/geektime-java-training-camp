@@ -21,16 +21,14 @@ public class ProducerController {
     @Autowired
     private Topic topic;
 
-
-    // curl http://localhost:8080/queue/test -X POST -d "testququuquqq"
+    // curl http://localhost:8080/queue/test -X POST -d "testqueue"
     @PostMapping("/queue/test")
     public String sendQueue(@RequestBody String str) {
         this.sendMessage(this.queue, str);
         return "success";
     }
 
-
-    //curl http://localhost:8080/topic/test -X POST -d "testtopiccccc"
+    //curl http://localhost:8080/topic/test -X POST -d "testtopic"
     @PostMapping("/topic/test")
     public String sendTopic(@RequestBody String str) {
         this.sendMessage(this.topic, str);
